@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}
+Вибір корму для тварин
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!--Website Heading-->
+    <header class="text-center mb-5">
+        <!--Category Name-->
+        <h1 class="display-4 font-weight-bold">
+            {{ category.name }}
+        </h1>
+        <!--Category Description-->
+        <p class="font-italic text-muted mb-0">
+            {{ category.description }}
+        </p>
+    </header>
+    <!--Cards-->
+    <div class="container">
+        <!--Row of Cards-->
+        <div class="row">
+            {% for item in items %}
+                {% include 'includes/items_modals.html' %}
+                <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                    <!--Card content-->
+                    <div class="card">
+                        <!--Card Image-->
+                        <img class="card-img"
+                             src="{{ item.image_url }}"
+                             alt="Vans">
+                        <!--Main Card Body-->
+                        <div class="card-body">
+                            <!--Item Name-->
+                            <h4 class="card-title">{{ item.name }}</h4>
+                            <!--Card Bottom-->
+                            <div class="buy d-flex justify-content-between align-items-center">
+                                <!--Item Price-->
+                                <div class="price text-success">
+                                    <h5 class="mt-4">{{ item.price }}₴</h5>
+                                </div>
+                                <!--Adding to Cart-->
+                                <button class="btn btn-outline btn-success"
+                                        data-toggle="modal"
+                                        data-target="#Modal-AddingConfirm-{{ item.id }}">
+                                    Додати у кошик
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}
+Реєстрація
+{% endblock %}
+
+{% block content %}
+<style>
+    .form-label {
+        color: #000000;
+    }
+</style>
+<body class="text-center">
+    <div class="container">
+        <!--Registration Form-->
+        <form method="POST" class="form-register" style="color:white">
+            {{ form.hidden_tag() }}
+            <h1 class="h3 mb-3 font-weight-normal text-dark">
+                Будь ласка, створіть свій акаунт
+            </h1>
+            <br>
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-control", placeholder="Ім'я користувача") }}
+
+            {{ form.email_address.label(class="form-label") }}
+            {{ form.email_address(class="form-control", placeholder="Електронна пошта") }}
+
+            {{ form.phone.label(class="form-label") }}
+            {{ form.phone(class="form-control", placeholder="Номер телефону") }}
+
+            {{ form.password1.label(class="form-label") }}
+            {{ form.password1(class="form-control", placeholder="Пароль") }}
+
+            {{ form.password2.label(class="form-label") }}
+            {{ form.password2(class="form-control", placeholder="Підтвердіть пароль") }}
+            <br>
+            <!--Proposition of Logging In-->
+            <div class="checkbox mb-3 text-dark">
+                <h3>
+                    Вже маєте акаунт?
+                </h3>
+                <a class="btn btn-md btn-secondary" href="{{ url_for('login_page') }}">Увійти</a>
+            </div>
+            <!--Submission of Account Creation-->
+            {{ form.submit(class="btn btn-lg btn-primary") }}
+        </form>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,48 @@
+<style>
+    .modal-content {
+    background-color: #8f9779
+    }
+</style>
+<div class="modal fade" id="Modal-AddingConfirm-{{ item.id }}"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!--Modal Window-->
+    <div class="modal-dialog">
+        <!--Modal Content-->
+        <div class="modal-content">
+            <!--Modal Heading-->
+            <div class="modal-header">
+                <!--Modal Title-->
+                <h5 class="modal-title" id="ModalLabel">
+                    {{ item.name }}
+                </h5>
+                <!--Close Button-->
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Modal Body-->
+            <div class="modal-body">
+                <!--Form-->
+                <form method="POST">
+                    {{ adding_form.hidden_tag() }}
+                    <!--Content Message-->
+                    <h4 class="text-center">
+                        Ви впевнені, що хочете додати "{{ item.name }}" у кошик?
+                    </h4>
+                    <br>
+                    <!--Submission button-->
+                    <input id="added_item" name="added_item" type="hidden" value="{{item.name}}">
+                    {{ adding_form.submit(class="btn btn-success btn-block") }}
+                </form>
+            </div>
+            <!--Close Button Down the Window-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

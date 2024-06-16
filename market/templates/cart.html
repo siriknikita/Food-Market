@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}
+Перегляд кошику
+{% endblock %}
+
+{% block content %}
+<section class="h-1000" style="background-color: #eee;">
+    <div class="container h-1000 py-5">
+        <div class="row d-flex justify-content-center align-items-center h-1000">
+            <div class="col-10">
+                <!--Title-->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="fw-normal mb-0 text-black">Кошик</h3>
+                </div>
+                {% for item in items %}
+                <!--Cards-->
+                <div class="card rounded-3 mb-4">
+                    <div class="card-body p-4">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <!-- Item Image -->
+                            <div class="col-md-2 col-lg-2 col-xl-2">
+                                <img src="{{ item.image_url }}"
+                                     class="img-fluid rounded-3">
+                            </div>
+                            <!-- Item Parameters -->
+                            <div class="col-md-3 col-lg-3 col-xl-3">
+                                <!-- Item Title -->
+                                <p class="lead fw-normal mb-2">{{ item.name }}</p>
+                            </div>
+                            <!-- Item Price -->
+                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                <h5 class="mb-0">{{ item.price }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                {% if not is_ordered %}
+                <!--Order Payment Info-->
+                <div class="card rounded-3 mb-4">
+                    <div class="card-body p-4">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="col-md-3 col-lg-3 col-xl-3">
+                                <p class="lead fw-normal mb-2">До сплати</p>
+                            </div>
+                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                <h5 class="mb-0">{{ total_price }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% include 'includes/cart_modal.html' %}
+                <div class="card">
+                    <div class="card-body">
+                        <button class="btn btn-outline btn-success"
+                                data-toggle="modal"
+                                data-target="#Modal-CartConfirm">
+                          Замовити
+                        </button>
+                    </div>
+                </div>
+                {% else %}
+                <div class="card rounded-3 mb-4">
+                    <div class="card-body p-4">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <p class="lead fw-normal mb-2">
+                                Ви вже зробили замовлення. На жаль, його не можна скасувати.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

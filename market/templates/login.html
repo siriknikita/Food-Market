@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+Авторизація
+{% endblock %}
+
+{% block content %}
+<style>
+    .form-label {
+        color: #000000;
+    }
+</style>
+<body class="text-center">
+    <div class="container">
+        <!--Authentication Form-->
+        <form method="POST" class="form-signin" style="color:white">
+            {{ form.hidden_tag() }}
+            <h1 class="h3 mb-3 font-weight-normal text-dark">
+                Будь ласка, увійдіть до вашого акаунта
+            </h1>
+            <br>
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-control", placeholder="Ім'я користувача") }}
+
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control", placeholder="Пароль") }}
+            <br>
+            <!--Proposition of Registering-->
+            <div class="checkbox mb-3 text-dark">
+                <h3>
+                    Не маєте акаунта?
+                </h3>
+                <a class="btn btn-md btn-secondary" href="{{ url_for('register_page') }}">Зареєструватись</a>
+            </div>
+            <!--Submission of Authentication-->
+            {{ form.submit(class="btn btn-lg btn-primary") }}
+        </form>
+    </div>
+</body>
+{% endblock %}

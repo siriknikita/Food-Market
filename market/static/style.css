@@ -1,0 +1,103 @@
+:root{
+    --w:#f0f0f0;
+    --s:#111111;
+    --a:navy;
+    --a2:lightblue;
+    --k:cornflowerblue;
+    --p2:2rem;
+    --p1: 1rem;
+    --p0: 0.5rem
+}
+body{
+    background:linear-gradient(45deg, navy, lightblue) no-repeat top center/cover;
+    padding:0;
+    margin:0;
+    font-family:Poppins,Roboto, Arial, sans-serif;
+    font-weight:200;
+    color:var(--s)
+}
+h1, h2{
+    text-align:center;
+    font-weight:400
+}
+#wrapper{
+    margin: 0;
+    width:100%
+}
+header{
+    text-align:center;
+    padding:var(--p2) 0 0;
+}
+header h1{
+    font-size:5vw;
+}
+footer{
+    text-align:center
+}
+main{
+    display:grid;
+    grid-template:auto/3fr 1fr;
+    grid-gap:1rem;
+    padding:var(--p1) var(--p2)
+}
+section{
+    background:rgba(250,250,250, .5);
+    padding:var(--p0) var(--p1) var(--p1);
+    margin:1rem 0;
+    border-radius:1rem
+}
+h2{
+    width:100%;
+    font-size:3vw;
+    margin:0 0 1rem
+}
+h3{
+    font-size:1.5vw;
+    margin:0.5rem 0 1rem
+}
+h4{
+    margin:auto;
+}
+h4 a:not(:hover), h3 a:not(:hover){
+    color:var(--k);
+    text-decoration:none;
+}
+h4 a:after, h3 a:after{
+    content:"\00A0\00BB"
+}
+aside small{
+    background:var(--a);
+    color:var(--w);
+    padding:5px;
+    border-radius:25px;
+    line-height:3;
+    margin-right:5px
+}
+.misc{
+    background:var(--k);
+}
+.style{
+    background:var(--w);
+}
+.style a{
+    color:var(--k)
+}
+footer{
+    background:var(--k);
+    padding:var(--p2) var(--p0);
+    font-size:2.5vw
+}
+@media only screen and (max-width:1000px){
+    main{
+        grid-template:auto/1fr;
+    }
+    aside{
+        grid-row:1/2
+    }
+    h2{
+        font-size:1.5rem
+    }
+    nav li a, h3{
+        font-size:1rem
+    }
+}

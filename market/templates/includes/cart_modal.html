@@ -1,0 +1,47 @@
+<style>
+    .modal-content {
+    background-color: #8f9779
+    }
+</style>
+<div class="modal fade" id="Modal-CartConfirm"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!--Modal Window-->
+    <div class="modal-dialog">
+        <!--Modal Content-->
+        <div class="modal-content">
+            <!--Modal Heading-->
+            <div class="modal-header">
+                <!--Modal title-->
+                <h5 class="modal-title" id="ModalLabel">
+                    Підтвердження замовлення
+                </h5>
+                <!--Close Button-->
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Modal Body-->
+            <div class="modal-body">
+                <!--Form-->
+                <form method="POST">
+                    {{ submission_form.hidden_tag() }}
+                    <!--Content Message-->
+                    <h4 class="text-center">
+                        Ви впевнені, що хочете зробити замовлення саме в такій конфігурації?
+                    </h4>
+                    <!--Submission button-->
+                    <br>
+                    {{ submission_form.submit(class="btn btn-success btn-block") }}
+                </form>
+            </div>
+            <!--Close Button Down the Window-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
