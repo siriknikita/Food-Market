@@ -10,11 +10,13 @@ CREATE TABLE IF NOT EXISTS user (
     phone VARCHAR(20),
     password_hash VARCHAR(255) NOT NULL
 );
+
 CREATE TABLE IF NOT EXISTS categories (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name VARCHAR(255) NOT NULL,
     description VARCHAR(255)
 );
+
 CREATE TABLE IF NOT EXISTS food_products (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name VARCHAR(255) NOT NULL,
@@ -24,6 +26,7 @@ CREATE TABLE IF NOT EXISTS food_products (
     FOREIGN KEY (category_id)
         REFERENCES categories (id)
 );
+
 CREATE TABLE IF NOT EXISTS beverages (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name VARCHAR(255) NOT NULL,
@@ -33,6 +36,7 @@ CREATE TABLE IF NOT EXISTS beverages (
     FOREIGN KEY (category_id)
         REFERENCES categories (id)
 );
+
 CREATE TABLE IF NOT EXISTS baby_products (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name VARCHAR(255) NOT NULL,
@@ -42,6 +46,7 @@ CREATE TABLE IF NOT EXISTS baby_products (
     FOREIGN KEY (category_id)
         REFERENCES categories (id)
 );
+
 CREATE TABLE IF NOT EXISTS pet_products (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name VARCHAR(255) NOT NULL,
@@ -51,6 +56,7 @@ CREATE TABLE IF NOT EXISTS pet_products (
     FOREIGN KEY (category_id)
         REFERENCES categories (id)
 );
+
 CREATE TABLE IF NOT EXISTS snacks (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name VARCHAR(255) NOT NULL,
@@ -60,6 +66,7 @@ CREATE TABLE IF NOT EXISTS snacks (
     FOREIGN KEY (category_id)
         REFERENCES categories (id)
 );
+
 CREATE TABLE IF NOT EXISTS orders (
     order_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     user_id INT,
@@ -67,6 +74,7 @@ CREATE TABLE IF NOT EXISTS orders (
     FOREIGN KEY (user_id)
         REFERENCES user (id)
 );
+
 CREATE TABLE IF NOT EXISTS order_details (
     order_detail_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     order_id INT,
