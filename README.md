@@ -1,9 +1,9 @@
 # Food Market
 The Food Market is the website built using Flask with interactive and user-friendly design to help them buy the products according to their preferences and needs without any troubles.
----
+
 ## DESCRIPTION
 A website for the grocery store "Food Market" has been developed. Python was chosen as the main programming language. The website was created on the basis of Flask and aims to simplify food ordering for people who do not have the opportunity to choose the products they need in person. The developed website has a convenient and understandable interface for everyone.
----
+
 ## TECHNOLOGIES USED
 - Python
 - Flask
